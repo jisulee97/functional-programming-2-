@@ -8,6 +8,5 @@
 // 웹 표준: 파일 확장자가 필요
 // Vite 환경: 파일 확장자 생략 가능 (.js, .jsx, .ts, .tsx, .json)
 
-
-import './styles/main.css';
-import './FP/chapters/00-programming-paradigm';
+import "./styles/main.css";
+import "./FP/chapters/01-functional-principle";
