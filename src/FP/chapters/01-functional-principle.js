@@ -24,6 +24,27 @@ function fetchAndRenderAndLogAlbumList() {
   fetch("https://jsonplaceholder.typicode.com/album/1/photos?_start=0&_limit=4")
     .then((response) => response.json())
     .then((data) => {
+      dummyDocument.body.innerHTML = `
+        <ul class="albumList">
+          ${data
+            .map(
+              ({ albumId, id, title, url, thumbnailUrl }) =>
+                `
+                <li class="albumItem">
+                  <a class="albumLink" href="${url}">
+                    <img class="albumThumbnail" src="${thumbnailUrl}" alt="" />
+                    <div role="group" class="albumInfo">
+                      <strong class="albumTitle">${title}</strong>
+                      <span class="albumId">${albumId}</span>
+                    </div>
+                  </a>
+                </li>
+              `
+            )
+            .join("")}
+        </ul>
+      `;
+
       console.log(dummyDocument.body.innerHTML);
     })
     .catch((error) => console.error(error.message));
